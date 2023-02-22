@@ -19,8 +19,19 @@ export const getUsers = async () => {
 };
 export const deleteUser = async (id) => {
   try {
-    const { data } = await axios.delete(URL(END_POINT.DELETE_USER()),{
-      params:{id}
+    const { data } = await axios.delete(URL(END_POINT.DELETE_USER()), {
+      params: { id },
+    });
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const updateUser = async (id, updateInfo) => {
+  try {
+    const { data } = await axios.put(URL(END_POINT.UPDATE_USER()), {
+      id,
+      updateInfo,
     });
     return data;
   } catch (error) {
